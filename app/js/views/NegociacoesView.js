@@ -1,6 +1,17 @@
-class NegociacoesView extends View {
-    template(modelo) {
-        return `
+System.register(["./View"], function (exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
+    var View_1, NegociacoesView;
+    return {
+        setters: [
+            function (View_1_1) {
+                View_1 = View_1_1;
+            }
+        ],
+        execute: function () {
+            NegociacoesView = class NegociacoesView extends View_1.View {
+                template(modelo) {
+                    return `
             <table class="table table-hover table-bordered">
                 <thead>
                     <tr>
@@ -10,7 +21,7 @@ class NegociacoesView extends View {
                         <th>VOLUME</th>
                     </tr>
                 </thead>
-
+    
                 <tbody>
                     ${modelo.paraArray().map(negociacao => `
                         <tr>
@@ -21,10 +32,14 @@ class NegociacoesView extends View {
                         </tr>                        
                     `).join('')}
                 </tbody>
-
+    
                 <tfoot>
                 </tfoot>
             </table>
         `;
-    }
-}
+                }
+            };
+            exports_1("NegociacoesView", NegociacoesView);
+        }
+    };
+});
