@@ -3,8 +3,9 @@ export abstract class View<T> {
     private _elemento: JQuery;
     private _escapar: boolean;
 
-    constructor(seletor: string, escapar?: boolean) {
+    constructor(seletor: string, escapar: boolean = true) {
         this._elemento = $(seletor);
+        this._escapar = escapar;
     }
 
     update(model: T) {
