@@ -36,7 +36,7 @@ System.register(["./View"], function (exports_1, context_1) {
                 <tfoot>
                 </tfoot>
             </table>
-            <script>alert('oi')</scipt>
+            <script>alert('oi')</script>
         `;
                 }
             };
