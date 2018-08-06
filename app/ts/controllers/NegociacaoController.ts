@@ -11,7 +11,7 @@ export class NegociacaoController {
     @domInject('#valor')
     private _inputValor: JQuery;
     private _negociacoes = new Negociacoes();
-    private _negociacoesView = new NegociacoesView('#negociacoesView',true);
+    private _negociacoesView = new NegociacoesView('#negociacoesView', true);
     private _mensagemView = new MensagemView('#mensagemView');
 
     constructor() {
@@ -39,6 +39,10 @@ export class NegociacaoController {
 
         this._negociacoesView.update(this._negociacoes);
         this._mensagemView.update('Negociação adicionada com sucesso');
+    }
+
+    importarDados() {
+        alert('oi');
     }
 
     private _ehDiaUtil(data: Date) {
