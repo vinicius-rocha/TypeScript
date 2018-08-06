@@ -47,19 +47,17 @@ export class NegociacaoController {
     @throttle()
     importarDados() {
 
-        function isOk(res: Response) {
-            if (res.ok)
-                return res;
-            throw new Error(res.statusText);
-        }
-
-        this._service.obterNegociacoes(isOk)
+        this._service
+            .obterNegociacoes(res => {
+                if (res.ok)
+                    return res;
+                throw new Error(res.statusText);
+            })
             .then(negociacoes => {
                 negociacoes.forEach(negociacao => this._negociacoes.adiciona(negociacao));
                 this._negociacoesView.update(this._negociacoes);
             })
             .catch(erro => console.log(erro));
-        
     }
 
     private _ehDiaUtil(data: Date) {

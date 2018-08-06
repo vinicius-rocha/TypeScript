@@ -44,12 +44,12 @@ System.register(["../views/index", "../models/index", "../helpers/decorators/ind
                     this._mensagemView.update('Negociação adicionada com sucesso');
                 }
                 importarDados() {
-                    function isOk(res) {
+                    this._service
+                        .obterNegociacoes(res => {
                         if (res.ok)
                             return res;
                         throw new Error(res.statusText);
-                    }
-                    this._service.obterNegociacoes(isOk)
+                    })
                         .then(negociacoes => {
                         negociacoes.forEach(negociacao => this._negociacoes.adiciona(negociacao));
                         this._negociacoesView.update(this._negociacoes);
